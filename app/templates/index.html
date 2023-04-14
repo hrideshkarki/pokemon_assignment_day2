@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Pokemon App</title>
+    <style>
+      body {
+        background-color: #e8ad55;
+      }
+
+      form {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      form {
+        box-shadow: 0px 0px 10px #888888;
+        padding: 100px;
+      }
+
+
+      input[type=text] {
+        border: none;
+        border-bottom: 2px solid #4285F4;
+        padding: 10px;
+        font-size: 16px;
+        width: 300px;
+      }
+
+      input[type=submit] {
+        background-color: #4285F4;
+        color: #fff;
+        border: none;
+        padding: 10px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      input[type=submit]:hover {
+        background-color: #2e68b2;
+      }
+
+      span {
+        display: block;
+        margin-top: 10px;
+        text-align: center;
+        color: #db4437;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 align="center">Pokemon App</h1>
+    <form align="center" method="POST">
+      {{ form.csrf_token }}
+      {{ form.pokemon_name.label }} {{ form.pokemon_name }}
+      {% for error in form.pokemon_name.errors %}
+        <span>{{ error }}</span>
+      {% endfor %}
+      <br>
+      {{ form.submit }}
+    </form>
+  </body>
+</html>
